@@ -1,0 +1,63 @@
+@charset "utf-8";
+#status_box ul {
+	width: 100%;
+	height: 31px;
+	padding: 5px 0;
+	white-space:nowrap;
+	clear: both;
+	margin: 0;
+}
+#status_box ul#flow li {
+	width:24.8%;
+}
+#status_box ul.flow li.selected {
+	background: #5279E7 url(../../img/status_box/flow-on.gif) no-repeat right top;
+	color:#FFFFFF;
+	font-weight: bold;
+}
+#status_box ul.flow li {
+	background: url(../../img/status_box/flow-gray.gif) #E3E3E3 no-repeat right;
+	color:#333333;	
+	list-style: none;
+	list-style-position: outside;
+	float: left;
+	line-height: 31px;
+	margin: 0 0 15px 0;
+}
+#status_box ul.flow li.last {
+	background:#FFEED8 none repeat scroll 0 0;
+	color:#9B2E2E;
+	font-weight:bold;
+}
+#status_box ul.flow li.selected span {
+	background: url(../../img/status_box/flow_num_on.gif) no-repeat 0 -31px;
+}
+#status_box ul.flow li span {
+	background: url(../../img/status_box/flow_num_gray.gif) no-repeat 0 -31px;
+	text-align: center;
+	display: block;
+	padding: 0 20px;
+	overflow:hidden;
+}
+#status_box ul.flow li step1 {
+	background-position: 0 -31px;
+}
+#status_box ul.flow li span.step2 {
+	background-position: 0 -71px;
+}
+#status_box ul.flow li span.step3 {
+	background-position: 0 -111px;
+}
+#status_box ul.flow li.last span.step4 {
+	background-position: 0 -151px;
+}
+#status_box ul.flow li.last span {
+	background: url(../../img/status_box/flow_num_end.gif) no-repeat 0 -31px;
+}
+/*#status_box ul.flow li.last span {
+	background: url(../../img/status_box/flow_num_end.gif) no-repeat 0 -31px;
+	text-align: center;
+	display: block;
+	padding: 0 20px;
+	overflow: hidden;
+}*/

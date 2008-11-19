@@ -1,0 +1,64 @@
+/* property_list
+   ------ */
+table.property_list{
+	border: 1px solid #6B96C2;
+	padding: 1px;
+}
+table.property_list tr.even-row td
+{
+	border: 1px solid #FFF;
+	background: #E6E6E6;
+}
+
+table.property_list th
+{
+	padding: 5px;
+	background: #6B96C2;
+	color: #fff;
+	border: 1px solid #FFF;
+	font-weight: normal;
+	text-align: center;
+	white-space: nowrap;
+}
+table.property_list th a{ color: #FFF; padding: 0.2em 1em;}
+table.property_list th a:hover{color:#FFF; background-color: #436FC6;}
+
+table.property_list .txt_r{text-align: right;}
+table.property_list .txt_c{text-align: center;}
+
+/* property_edit
+   ------ */
+table.property_edit{
+	border: 1px solid #6B96C2;
+	padding: 1px;
+}
+table.property_edit tr.even-row td
+{
+	border: 1px solid #FFF;
+	background: #E6E6E6;
+}
+
+table.property_edit th
+{
+	width: 18em;
+	padding:5px;
+	background: #6B96C2;
+	color: #fff;
+	border: 1px solid #FFF;
+	font-weight: normal;
+}
+
+/* property
+table.property { width: 450px; margin: 0px auto;}
+table.property th { background:#FFFFFF; padding: 10px 15px; width: 110px; vertical-align: top; border-bottom:1px solid #DDDDDD; font-weight: normal;}
+   ------ */
+
+table.property td { padding: 5px 15px; border-bottom:1px solid #DDDDDD;}
+table.property td input { /*width: 200px;*/}
+table.property td span { color: #CC0000; font-size: 10px;}
+table.property td select { margin-left: 0px; width: 200px; /*float: left;*/}
+div.error-message { float: left; color: #FF0000; font-size:12px; white-space:nowrap;}
+table.property td.td_error{ border: none; padding: 10px 0px;}
+table.property tr.even-row td, table.property tr.even-row th { background: #D4E9FE;}
+table.property textarea { margin-left: 0px; height: 80px; width: 200px;}
+table.property td input#ImageDeletepic1 { width: 10px;}
