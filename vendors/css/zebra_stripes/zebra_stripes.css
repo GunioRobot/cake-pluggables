@@ -26,8 +26,7 @@ table.property_list th a:hover{color:#FFF; background-color: #436FC6;}
 table.property_list .txt_r{text-align: right;}
 table.property_list .txt_c{text-align: center;}
 
-/* property_edit
-   ------ */
+/* property_edit table  ------ */
 table.property_edit{
 	border: 1px solid #6B96C2;
 	padding: 1px;
@@ -62,3 +61,39 @@ table.property td.td_error{ border: none; padding: 10px 0px;}
 table.property tr.even-row td, table.property tr.even-row th { background: #D4E9FE;}
 table.property textarea { margin-left: 0px; height: 80px; width: 200px;}
 table.property td input#ImageDeletepic1 { width: 10px;}
+
+/* property_edit dl  ------ */
+dl.property_edit{
+	border: 1px solid #6B96C2;
+	padding: 1px;
+}
+dl.property_edit dd.even-row, dt.even-row
+{
+	border: 1px solid #FFF;
+	background: #E6E6E6;
+}
+
+/*
+dl.property_edit th
+{
+	width: 18em;
+	padding:5px;
+	background: #6B96C2;
+	color: #fff;
+	border: 1px solid #FFF;
+	font-weight: normal;
+}
+*/
+/*
+
+dl.property td { padding: 5px 15px; border-bottom:1px solid #DDDDDD;}
+dl.property td span { color: #CC0000; font-size: 10px;}
+dl.property td select { margin-left: 0px; width: 200px; }
+div.error-message { float: left; color: #FF0000; font-size:12px; white-space:nowrap;}
+dl.property td.td_error{ border: none; padding: 10px 0px;}
+dl.property tr.even-row td, dl.property tr.even-row th { background: #D4E9FE;}
+dl.property textarea { margin-left: 0px; height: 80px; width: 200px;}
+dl.property td input#ImageDeletepic1 { width: 10px;}
+*/
+
+
