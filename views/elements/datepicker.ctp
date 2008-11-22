@@ -1,5 +1,5 @@
 <?php
-	if(empty($include_js)){
+	if(!isset($include_js)){
 		$include_js = true;		
 	}
 	if($include_js){
