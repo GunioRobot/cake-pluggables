@@ -1,0 +1,8 @@
+﻿
+=== use this in your controller. ===
+	<?php
+	App::import('Vendor', 'fckeditor' . DS . 'fckeditor');
+	?>
+
+== And this in your view ===
+	<?= $this->element('fck', array('plugin' => 'jqcake', 'model'=>'MyModel','field'=>'sometin')); ?>

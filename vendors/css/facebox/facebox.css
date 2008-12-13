@@ -25,13 +25,12 @@
   left: 0;
   z-index: 100;
   text-align: left;
-  width: 500px;
+  width: auto;
 }
 
 #facebox .popup {
   position: relative;
   top: 70px;
-  left: 330px;
 }
 
 #facebox table {

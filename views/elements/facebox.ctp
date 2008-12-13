@@ -19,12 +19,4 @@ $(document).ready(function(){
 	});	
   }); 
 })
-
-
-/*
-jQuery(document).ready(function($) {
-  $('a[rel*=facebox]').facebox()
-})
-*/
-
 </script>

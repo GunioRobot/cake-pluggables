@@ -15,6 +15,7 @@
 ?>
 
 <script type="text/javascript" charset="utf-8">
+
  $(document).ready(function(){
    $.datepicker.regional['ja'];
  });
@@ -25,12 +26,16 @@
 			buttonImageOnly: true,
 			rangeSeparator: ' ~ '
 			<?php 
+            if(!empty($beforeShowDay)){
+                echo ", beforeShowDay: $beforeShowDay," . "\n";
+            }
+            
 			if($multiple){
 				echo ", rangeSelect: true," . "\n";
 				echo "numberOfMonths: 2" ."\n";
 			}
-			?>
-			<?php if(isset($defaultDate) && $defaultDate <> ""){
+			
+			if(isset($defaultDate) && $defaultDate <> ""){
 				$defaultDate = explode("-",$defaultDate);
 				echo ", defaultDate: new Date('{$defaultDate[0]}, {$defaultDate[1]}, {$defaultDate[2]}')". "\n"; 
 			}
