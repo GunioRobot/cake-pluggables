@@ -1,5 +1,5 @@
 <?php
-class MemoryComponent // extends Object
+class MemoryComponent
 {
 	public $components = array('Session');
 
@@ -16,7 +16,6 @@ class MemoryComponent // extends Object
 	}
 	
 	public function savePagination($params){
-		//@todo: this doesn't work with assignments controller because it has multiple tables?
 		if(!empty($params['named']) && !empty($params['controller']) && $params['action'] == 'admin_index'){
 			$this->Session->write("Pagem.{$params['controller']}", $params['named']);
 		}
@@ -27,11 +26,8 @@ class MemoryComponent // extends Object
 	}
 
 	public function prepareRedirect($params, $redirectTo){
-		//pr($this->Controller);
-		//pr($params);
 		$redirectNew = "";
 		if(is_array($redirectTo)){
-			//pr($redirectTo);
 			if(!empty($params['prefix']) && $params['prefix'] == 'admin'){
 				$redirectNew .= '/admin';
 			}
@@ -44,7 +40,6 @@ class MemoryComponent // extends Object
 		} else {
 			$redirectNew = $redirectTo;
 		}
-		//echo $redirectNew;
 
 		$controller = $params['controller'];
 		if($this->Session->check("Pagem.$controller")){
@@ -53,7 +48,6 @@ class MemoryComponent // extends Object
 			foreach($settings as $key=>$value){
 				$append[] = "$key:$value";
 			}
-			//echo  join("/", $append);
 			return $redirectNew . "/" . join("/", $append);
 		} else {
 			return $redirectNew;
