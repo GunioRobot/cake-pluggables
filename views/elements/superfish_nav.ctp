@@ -4,7 +4,9 @@ echo $javascript->link("/jqcake/js/superfish/hoverIntent");
 ?>
 <script type="text/javascript">
 // initialise plugins
-jQuery(function(){
-    jQuery('ul.sf-menu').superfish();
-});
+    $(document).ready(function(){ 
+        $("ul.sf-menu").superfish({ 
+            pathClass:  'current' 
+        }); 
+    }); 
 </script>

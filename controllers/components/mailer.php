@@ -5,11 +5,20 @@ require_once 'plugins/jqcake/vendors/phpmailer/class.smtp.php';
 
 class MailerComponent extends PHPMailer
 {
-    var $controller = true;
-	var $CharSet           = "utf-8";
-	var $Encoding          = "7bit";
-	var $SMTPAuth = true;     // turn on SMTP authentication
-	var $WordWrap = 40;
+    public $controller = true;
+	public $CharSet           = "utf-8";
+	public $Encoding          = "7bit";
+	public $SMTPAuth = true;     // turn on SMTP authentication
+	public $WordWrap = 40;
+	public $ContentType = 'text/html';
+	
+	/**
+	* Test To/From
+	* 
+	*/
+	public $TestTo;
+	public $TestFrom;
+	public $TestFromName;
 
     /**
      * SMPT Host
@@ -66,7 +75,6 @@ class MailerComponent extends PHPMailer
         return ($user && $pass);
     }
     
-    
     /**
      * Attach files to the Mailer object
      *
@@ -86,37 +94,58 @@ class MailerComponent extends PHPMailer
       }
     }
 	
+	public function setDefaults($message){
+	    $this->ClearAllRecipients();
+	    if(empty($message['toEmail'])){
+	        $this->AddAddress($this->TestTo);
+	    }
+	    if(empty($message['fromEmail'])){
+		    $this->From = $this->TestFrom;
+		    $this->FromName = $this->TestFromName;
+		}
+	}
+	
 	public function setupMessage($message){
 	    // mail processing
-		$fromEmail = $message['fromEmail'];
-		$fromName = $message['fromName'];
-		$toEmail = $message['toEmail'];
-		$toName = $message['toName'];
+		$this->setDefaults($message);
+				
+		if(!empty($message['fromEmail'])){
+		    $this->From = $message['fromEmail'];
+		}
+		if(!empty($message['fromName'])){
+		    $this->FromName = $message['fromName'];
+		}
+		if(!empty($message['toEmail'])){
+		    $toEmail = $message['toEmail'];
+		    $toName = '';
+		    if(!empty($message['toName'])){
+    		    $toName = $message['toName'];
+    		}
+		    $this->AddAddress($toEmail, $toName);
+		}
+		
+		$this->Subject = $message['subject'];
 		$msg = $message['body'];
 		$this->IsMail();
-		$this->IsHTML(true);
-		$this->From = $fromEmail;
-		$this->FromName = $fromName;
-		$this->AddAddress($toEmail, $toName);
+		
+		//added content type html to default vars
+		//$this->IsHTML(true);
+		$this->Body = $msg;
 
 		//set charset
-		if(isset($message['CharSet'])){
+		if(!empty($message['CharSet'])){
 			$this->CharSet = $message['CharSet'];
 		}
 		
 		//if cc mail is not blank (isset) add a CC
-		if(isset($message['ccEmail'])){
+		if(!empty($message['ccEmail'])){
 			$this->AddAddress($message['ccEmail']);
 		}
 		
 		//if bcc mail is not blank (isset) add a BCC
-		if(isset($message['bccEmail'])){
+		if(!empty($message['bccEmail'])){
 			$this->AddBCC($message['bccEmail'], "Tester");
 		}
-		//$this->AddReplyTo($fromEmail, $fromName);
-		$this->Subject = $message['subject'];
-		$this->Body = $msg;
-
 	}
 
     /**
@@ -155,15 +184,15 @@ class MailerComponent extends PHPMailer
 	}
 	
 	function attachAll(){
-	 if (!empty($this->attachments)) {
-      foreach ($this->attachments as $attachment) {
-        if (empty($attachment['asfile'])) {
-          $this->AddAttachment($attachment['filename']);
-        } else {
-          $this->AddAttachment($attachment['filename'], $attachment['asfile']);
-        }
-      }
-    } 
+        if (!empty($this->attachments)) {
+          foreach ($this->attachments as $attachment) {
+            if (empty($attachment['asfile'])) {
+              $this->AddAttachment($attachment['filename']);
+            } else {
+              $this->AddAttachment($attachment['filename'], $attachment['asfile']);
+            }
+          }
+        } 
 	}
 	
 }

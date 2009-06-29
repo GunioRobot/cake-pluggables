@@ -29,7 +29,8 @@ table.property_list .txt_c{text-align: center;}
 /* property_edit table  ------ */
 table.property_edit{
 	border: 1px solid #6B96C2;
-	padding: 1px;
+	width: 99%;
+	margin: 3px auto;
 }
 table.property_edit tr.even-row td
 {

@@ -56,54 +56,27 @@ ul.sf-menu li li li.sfHover ul {
 /*** DEMO SKIN ***/
 .sf-menu {
 	float:			left;
-	margin-left: 130px;
-	height: 30px;
 	/*margin-bottom:	1em;*/
 }
 .sf-menu a {
 	/*border-left:	1px solid #fff;
 	border-top:		1px solid #CFDEFF;
 	padding: 		.75em 1em;*/
-	height: 30px;
-	line-height: 30px;	
+	height: 29px;
+	line-height: 29px;	
 	text-decoration:none;
 	text-align: center;
 }
 .sf-menu a, .sf-menu a:visited  { /* visited pseudo selector so IE6 applies text colour*/
 	color: #FFFFFF;
 }
-.sf-menu li {	
-	width: 91px;
-	height: 30px;
+.sf-menu li {
+	height: 29px;
 	position: relative;
 	margin-right: 10px;
 	font-size: 14px;
 }
-.sf-menu li a {
-	padding-left: 15px;
-}
-.sf-menu li ul {
-	-moz-border-radius-topright: 0px;
-	-moz-border-radius-bottomleft:5px;
-	-moz-border-radius-bottomright:5px;
-	background: white none repeat scroll 0 0;
-	border-bottom:1px solid #C6D9E9;
-	border-left:1px solid #C6D9E9;
-	border-right:1px solid #C6D9E9;
-	left:-999em;
-	list-style-image:none;
-	list-style-position:outside;
-	list-style-type:none;
-	margin:0;
-	min-width:6em;
-	width: auto;
-	opacity: 0.95;
-	padding:0 0 5px;
-	position:absolute;
-	font-size: 14px;
-}
 .sf-menu li li a {
-	background: #FFFFFF;
 	color: #333333;
 	font-weight: normal;
 	padding-left: 0;
@@ -163,12 +136,12 @@ li.sfHover > a > .sf-sub-indicator {
 
 /*** shadows for all but IE6 ***/
 .sf-shadow ul {
-	background:	url('../img/superfish/shadow.png') no-repeat bottom right;
+	/*background:	url('../img/superfish/shadow.png') no-repeat bottom right;
 	padding: 0 8px 9px 0;
 	-moz-border-radius-bottomleft: 17px;
 	-moz-border-radius-topright: 17px;
 	-webkit-border-top-right-radius: 17px;
-	-webkit-border-bottom-left-radius: 17px;
+	-webkit-border-bottom-left-radius: 17px;*/
 }
 .sf-shadow ul.sf-shadow-off {
 	background: transparent;

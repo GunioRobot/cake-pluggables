@@ -22,8 +22,8 @@ class MemoryComponent // extends Object
 		}
 	}
 	
-	public function deletePagination($controller, $pagination){
-	
+	public function deletePagination($controller){
+	    $this->Session->del("Pagem.$controller");
 	}
 
 	public function prepareRedirect($params, $redirectTo){
@@ -58,7 +58,6 @@ class MemoryComponent // extends Object
 		} else {
 			return $redirectNew;
 		}
-	
 	}
 
 }

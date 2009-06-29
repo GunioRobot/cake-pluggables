@@ -3,7 +3,6 @@
 <script type="text/javascript">
   $(document).ready(function(){
       $("div.message").show();
-      //$("div.message").fadeTo(10000, 1);   
   });
 </script>
 <?php $session->flash(); ?>

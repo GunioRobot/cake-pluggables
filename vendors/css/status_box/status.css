@@ -1,19 +1,32 @@
 @charset "utf-8";
 #status_box ul {
 	width: 100%;
-	height: 31px;
 	padding: 5px 0;
 	white-space:nowrap;
 	clear: both;
 	margin: 0;
 }
+#status_box ul:after {
+	content: ".";/*ピリオド（.）を生成*/
+	display: block;/*clearを効かせるためピリオドをブロック要素に見せる*/
+	visibility: hidden;/*ピリオドを隠す*/
+	height: 0;/*ピリオドの高さをなくす*/
+	line-height: 0;/*ピリオドの行間をなくす*/
+	clear: both;/*クリアする*/
+}
 #status_box ul#flow li {
-	width:24.8%;
+	width:auto;
 }
 #status_box ul.flow li.selected {
-	background: #5279E7 url(../../img/status_box/flow-on.gif) no-repeat right top;
+	background: #9DCE69 url(../../img/status_box/flow-on.gif) no-repeat right top;
 	color:#FFFFFF;
 	font-weight: bold;
+}
+#status_box ul.flow li.finished	 {
+	background: #5279E7 url(../../img/status_box/flow-on-finished.gif) no-repeat right top;
+	color:#FFFFFF;
+	font-weight: bold;
+	padding-right: 30px;
 }
 #status_box ul.flow li {
 	background: url(../../img/status_box/flow-gray.gif) #E3E3E3 no-repeat right;
@@ -22,7 +35,7 @@
 	list-style-position: outside;
 	float: left;
 	line-height: 31px;
-	margin: 0 0 15px 0;
+	margin:  0 0 10px 0;
 }
 #status_box ul.flow li.last {
 	background:#FFEED8 none repeat scroll 0 0;
@@ -30,26 +43,39 @@
 	font-weight:bold;
 }
 #status_box ul.flow li.selected span {
+	background: url(../../img/status_box/flow_num_on_selected.gif) no-repeat 0 -31px;
+}
+#status_box ul.flow li.finished span {
 	background: url(../../img/status_box/flow_num_on.gif) no-repeat 0 -31px;
+	padding-right: 5px;
 }
 #status_box ul.flow li span {
 	background: url(../../img/status_box/flow_num_gray.gif) no-repeat 0 -31px;
 	text-align: center;
 	display: block;
-	padding: 0 20px;
+	padding: 0 10px 0 25px;
 	overflow:hidden;
 }
 #status_box ul.flow li step1 {
-	background-position: 0 -31px;
+	background-position: 0 -31px !important;
 }
 #status_box ul.flow li span.step2 {
-	background-position: 0 -71px;
+	background-position: 0 -71px !important;
 }
 #status_box ul.flow li span.step3 {
-	background-position: 0 -111px;
+	background-position: 0 -111px !important;
 }
-#status_box ul.flow li.last span.step4 {
-	background-position: 0 -151px;
+#status_box ul.flow li span.step4 {
+	background-position: 0 -151px !important;
+}
+#status_box ul.flow li.last span.step5 {
+	background-position: 0 -191px !important;
+}
+#status_box ul.flow li span.step5 {
+	background-position: 0 -191px !important;
+}
+#status_box ul.flow li.last span.step6 {
+	background-position: 0 -231px !important;
 }
 #status_box ul.flow li.last span {
 	background: url(../../img/status_box/flow_num_end.gif) no-repeat 0 -31px;
