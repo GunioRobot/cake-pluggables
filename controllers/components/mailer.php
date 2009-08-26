@@ -10,7 +10,7 @@ class MailerComponent extends PHPMailer
 	public $Encoding          = "7bit";
 	public $SMTPAuth = true;     // turn on SMTP authentication
 	public $WordWrap = 40;
-	public $ContentType = 'text/html';
+	//public $ContentType = 'text/html';
 	
 	/**
 	* Test To/From
@@ -75,25 +75,6 @@ class MailerComponent extends PHPMailer
         return ($user && $pass);
     }
     
-    /**
-     * Attach files to the Mailer object
-     *
-     * @param string $filename
-     * @param string $asfile
-     * @access public
-     */
-    public function attach($filename, $asfile = '') {
-      if (empty($this->attachments)) {
-        $this->attachments = array();
-        $this->attachments[0]['filename'] = $filename;
-        $this->attachments[0]['asfile'] = $asfile;
-      } else {
-        $count = count($this->attachments);
-        $this->attachments[$count+1]['filename'] = $filename;
-        $this->attachments[$count+1]['asfile'] = $asfile;
-      }
-    }
-	
 	public function setDefaults($message){
 	    $this->ClearAllRecipients();
 	    if(empty($message['toEmail'])){
@@ -126,10 +107,7 @@ class MailerComponent extends PHPMailer
 		
 		$this->Subject = $message['subject'];
 		$msg = $message['body'];
-		$this->IsMail();
-		
-		//added content type html to default vars
-		//$this->IsHTML(true);
+		$this->IsSendmail();
 		$this->Body = $msg;
 
 		//set charset
@@ -159,29 +137,45 @@ class MailerComponent extends PHPMailer
      * @throws Exception
      * @see setAuth(), $Username, $Password, $Host
      */
-	function sendMessage()//$application)
+	function sendMessage()
 	{
 	    //if debug level is 2 then dont send
 	    if(Configure::read('debug') == 2){
 	        $this->ClearAllRecipients();
             return true;
-	    }   
+	    }
 	    
         // validate
-        $msg = 'Error!! Cannot send mail, credentials okay?';
-        if (!$this->hasAuth()) throw new Exception($msg);
-        $msg = null;
+        // $msg = 'Error!! Cannot send mail, credentials okay?';
+        // if (!$this->hasAuth()) throw new Exception($msg);
+        // $msg = null;
         
-        //$this->attachAll();
 		if($this->Send()){
 			$this->ClearAllRecipients();
 			return true;
-		}else{
-			$this->ClearAllRecipients();
-			return false;
 		}
-
+		$this->ClearAllRecipients();
+		return false;
 	}
+	
+	/**
+     * Attach files to the Mailer object
+     *
+     * @param string $filename
+     * @param string $asfile
+     * @access public
+     */
+    public function attach($filename, $asfile = '') {
+      if (empty($this->attachments)) {
+        $this->attachments = array();
+        $this->attachments[0]['filename'] = $filename;
+        $this->attachments[0]['asfile'] = $asfile;
+      } else {
+        $count = count($this->attachments);
+        $this->attachments[$count+1]['filename'] = $filename;
+        $this->attachments[$count+1]['asfile'] = $asfile;
+      }
+    }
 	
 	function attachAll(){
         if (!empty($this->attachments)) {
