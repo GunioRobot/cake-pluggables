@@ -1,5 +1,5 @@
 <?php
-	if(!isset($include_js)){
+	if(empty($include_js)){
 		$include_js = true;		
 	}
 	if($include_js){
@@ -9,37 +9,41 @@
 		echo $javascript->link('/jqcake/js/jquery/ui/i18n/ui.datepicker-ja.js');
 	}
 	
-	if(!isset($multiple)){
+	if(empty($multiple)){
 		$multiple = false;
+	}
+	
+	if(empty($rangeSeparator)){
+	    $rangeSeparator = ' ~ ';
 	}
 ?>
 
 <script type="text/javascript" charset="utf-8">
 
- $(document).ready(function(){
-   $.datepicker.regional['ja'];
- });
-	jQuery(function($){
-		$('#<?= $elementid ?>').datepicker({
-			showOn: 'button',
-			buttonImage: '<?= $this->webroot ?>jqcake/img/calendar.gif',
-			buttonImageOnly: true,
-			rangeSeparator: ' ~ '
-			<?php 
-            if(!empty($beforeShowDay)){
-                echo ", beforeShowDay: $beforeShowDay," . "\n";
-            }
-            
-			if($multiple){
-				echo ", rangeSelect: true," . "\n";
-				echo "numberOfMonths: 2" ."\n";
-			}
-			
-			if(isset($defaultDate) && $defaultDate <> ""){
-				$defaultDate = explode("-",$defaultDate);
-				echo ", defaultDate: new Date('{$defaultDate[0]}, {$defaultDate[1]}, {$defaultDate[2]}')". "\n"; 
-			}
-			?>
-		}); 
-	});
+$(document).ready(function(){
+$.datepicker.regional['ja'];
+});
+jQuery(function($){
+	$('#<?= $elementid ?>').datepicker({
+		showOn: 'button',
+		buttonImage: '<?= $this->webroot ?>jqcake/img/calendar.gif',
+		buttonImageOnly: true,
+		rangeSeparator: '<?= $rangeSeparator ?>',
+		<?php 
+        if(!empty($beforeShowDay)){
+            echo ", beforeShowDay: $beforeShowDay,";
+        }
+        
+		if($multiple){
+			echo "rangeSelect: true,";
+			echo "\n\t\t" . "numberOfMonths: 2," ."\n";
+		}
+		
+		if(isset($defaultDate) && $defaultDate <> ""){
+			$defaultDate = explode("-",$defaultDate);
+			echo ", defaultDate: new Date('{$defaultDate[0]}, {$defaultDate[1]}, {$defaultDate[2]}')". "\n"; 
+		}
+		?>
+	}); 
+});
 </script>
