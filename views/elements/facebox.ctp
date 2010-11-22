@@ -1,8 +1,8 @@
 <?php
 echo $html->css("/jqcake/css/facebox/facebox", null, array(), false); 
-echo $javascript->link("/jqcake/js/facebox/facebox");
-echo $javascript->link("/jqcake/js/jquery/jquery.livequery");
-echo $javascript->link("/jqcake/js/jquery/jquery.bgiframe.pack");
+echo $html->script("/jqcake/js/facebox/facebox");
+echo $html->script("/jqcake/js/jquery/jquery.livequery");
+echo $html->script("/jqcake/js/jquery/jquery.bgiframe.pack");
 $facebox_img_dir = $this->webroot . "jqcake/img/facebox/";
 ?>
 <script type="text/javascript">

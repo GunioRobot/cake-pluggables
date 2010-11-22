@@ -1,11 +1,11 @@
 <?php
-echo $javascript->link("/jqcake/js/jquery-autocomplete/lib/jquery.bgiframe.min");
-//echo $javascript->link("/jqcake/js/jquery-autocomplete/lib/jquery.ajaxQueue.js");
-//echo $javascript->link("/jqcake/js/jquery-autocomplete/lib/thickbox-compressed.js");
-echo $javascript->link("/jqcake/js/jquery-autocomplete/jquery.autocomplete");
+echo $html->script("/jqcake/js/jquery-autocomplete/lib/jquery.bgiframe.min");
+//echo $html->script("/jqcake/js/jquery-autocomplete/lib/jquery.ajaxQueue.js");
+//echo $html->script("/jqcake/js/jquery-autocomplete/lib/thickbox-compressed.js");
+echo $html->script("/jqcake/js/jquery-autocomplete/jquery.autocomplete");
 
-echo $html->css("/jqcake/css/jquery-autocomplete/main", null, array(), false);
-echo $html->css("/jqcake/css/jquery-autocomplete/jquery.autocomplete", null, array(), false);
+echo $html->css("/jqcake/css/jquery-autocomplete/main", null, array('inline'=>false));
+echo $html->css("/jqcake/css/jquery-autocomplete/jquery.autocomplete", null, array('inline'=>false));
 //echo $html->css("/jqcake/css/jquery-autocomplete/thickbox", null, array(), false);
 //if(empty($suggestField)){
 //	$suggestField = '.suggestEm';

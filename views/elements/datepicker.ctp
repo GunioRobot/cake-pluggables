@@ -5,8 +5,8 @@
 	if($include_js){
 		//include required libraries
 		echo $html->css("/jqcake/css/datepicker/ui.datepicker", null, array(), false);
-	    echo $javascript->link('/jqcake/js/jquery/ui/packed/ui.datepicker.packed.js');
-		echo $javascript->link('/jqcake/js/jquery/ui/i18n/ui.datepicker-ja.js');
+	    echo $html->script('/jqcake/js/jquery/ui/packed/ui.datepicker.packed.js');
+		echo $html->script('/jqcake/js/jquery/ui/i18n/ui.datepicker-ja.js');
 	}
 	
 	if(empty($multiple)){
