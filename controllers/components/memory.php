@@ -22,7 +22,7 @@ class MemoryComponent
 	}
 	
 	public function deletePagination($controller){
-	    $this->Session->del("Pagem.$controller");
+	    $this->Session->delete("Pagem.$controller");
 	}
 
 	public function prepareRedirect($params, $redirectTo){
